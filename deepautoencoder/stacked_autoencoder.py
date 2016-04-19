@@ -47,11 +47,11 @@ class StackedAutoEncoder:
         if self.noise == 'sp':
             pass
 
-    def fit(self, x):
+    def fit(self, x, y):
         for i in range(self.depth):
             print('Layer {0}'.format(i + 1))
             if self.noise is None:
-                self.ae = BasicAutoEncoder(data_x=x, activation=self.activations[i], data_x_=x,
+                self.ae = BasicAutoEncoder(data_x=x, labels=y, activation=self.activations[i], data_x_=x,
                                            hidden_dim=self.dims[i], epoch=self.epoch[i], loss=self.loss,
                                            batch_size=self.batch_size, lr=self.lr, print_step=self.print_step)
             else:
@@ -73,6 +73,6 @@ class StackedAutoEncoder:
             x = self.ae.activate(layer, a)
         return x.eval(session=sess)
 
-    def fit_transform(self, x):
-        self.fit(x)
+    def fit_transform(self, x, y):
+        self.fit(x, y)
         return self.transform(x)
