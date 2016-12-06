@@ -4,14 +4,14 @@
 A simple Tensorflow based library for Deep autoencoder and denoising AE. Library follows sklearn style.
 
 ### Prerequisities & Support
-* Tensorflow >=0.7.1 is needed (https://www.tensorflow.org/versions/r0.12/get_started/os_setup.html#pip-installation)
+* Tensorflow 0.7.1 is needed (https://www.tensorflow.org/versions/r0.7/get_started/os_setup.html#pip-installation)
 * Supports both Python 2.7 and 3.4+ . Inform if it doesn't.
 
 ## Installing
 
 Just clone / download zip and then install
 ```
-pip install git+https://github.com/artifacia/libsdae.git
+pip install git+https://github.com/rajarsheem/libsdae.git
 ```
 
 ## Usage and small doc
@@ -27,6 +27,8 @@ result = model.fit_transform(x)
 model.fit(x)
 result = model.transform(np.random.rand(5, x.shape[1]))
 ```
+![Alt text](libsdae.png?raw=true "Demo for MNIST data")
+
 ### Important points:
 * If noise is not given, it becomes an autoencoder instead of denoising autoencoder.
 * dims refers to the dimenstions of hidden layers. (3 layers in this case)
